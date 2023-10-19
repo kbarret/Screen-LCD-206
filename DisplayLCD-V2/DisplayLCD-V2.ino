@@ -19,12 +19,13 @@ virtuabotixRTC myRTC(6, 7, 8);
 unsigned long previousMillis = 0;
 const long interval = 500;
 
-byte displaySelect = 0;
+byte displaySelect = 1;
+byte numberOfScreen = 4;
 //byte eepromTable[] = {0, 0};//litre, decimal apres la virgule
 const byte switchDisplay = 3;
 const byte switchInitTime = 4;
 
-boolean table[] = {false, false, false, false, false, false}; //buttonDisplay, clearDisplayTime, clearDisplayPerf1, clearDisplayPerf2, buttonInitTime, clearDisplayPerf3
+boolean table[] = {false, false, false, false, false, false}; //buttonDisplay, clearDisplayTime, clearDisplayPerf1, clearDisplayPerf2, clearDisplayPerf3, buttonInitTime
 
 void setup() {
   
@@ -59,15 +60,5 @@ void loop() {
   
   actionButton();
   
-  switch(displaySelect){
-    case 0:
-      displayTime();
-      break;
-    case 1:
-      displayPerf1();
-      break;
-    case 2:
-      displayPerf2();
-      break;
-  }  
+  displayToLCD();
 }

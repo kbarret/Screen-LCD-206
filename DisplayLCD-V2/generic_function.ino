@@ -39,3 +39,32 @@ void displayDate(){
   cursor(11,3);
   lcd.print(myRTC.year);
 }
+
+void displayToLCD(){
+  switch(displaySelect){
+    case 1:
+      displayTime();
+      break;
+    case 2:
+      displayPerf1();
+      break;
+    case 3:
+      displayPerf2();
+      break;
+    case 4:
+      displayPerf3();
+      break;
+  }  
+}
+
+void clearLCD(int screen){
+  if(table[screen] == false){
+    lcd.clear();
+    for(int i = 1; i != numberOfScreen; i++){
+      if(i == screen){
+        table[i] = true;
+      }
+      table[i] = false;
+    }   
+  }
+}
