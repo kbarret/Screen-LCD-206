@@ -95,7 +95,8 @@ void displayPerf2(){ //Screen 3
       
       cursor(0,3);
       lcd.print("CONSO:");
-      lcd.print(emucan.emu_data.fuel_used);
+      lcd.print(consoAverage);
+      lcd.print("L/100");
       
       cursor(14,0);
       lcd.print("MODE:");      
