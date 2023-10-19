@@ -27,6 +27,8 @@ const byte switchInitTime = 4;
 
 boolean table[] = {false, false, false, false, false, false}; //buttonDisplay, clearDisplayTime, clearDisplayPerf1, clearDisplayPerf2, clearDisplayPerf3, buttonInitTime
 
+struct can_frame canMsg1;
+
 void setup() {
   
   Serial.begin(115200);

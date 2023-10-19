@@ -60,11 +60,12 @@ void displayToLCD(){
 void clearLCD(int screen){
   if(table[screen] == false){
     lcd.clear();
+    table[screen] = true;
     for(int i = 1; i != numberOfScreen; i++){
-      if(i == screen){
-        table[i] = true;
-      }
-      table[i] = false;
+      if(i != screen){
+        table[i] = false;
+        
+      }     
     }   
   }
 }
