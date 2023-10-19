@@ -96,7 +96,6 @@ void displayPerf2(){ //Screen 3
       cursor(0,3);
       lcd.print("CONSO:");
       lcd.print(consoAverage);
-      lcd.print("L/100");
       
       cursor(14,0);
       lcd.print("MODE:");      
@@ -149,7 +148,6 @@ void displayPerf3(){ //Screen 4
       cursor(0,2);
       lcd.print("Conso:");
       lcd.print(conso);
-      lcd.print("L/100");
 
       cursor(0,3);
       lcd.print("Pulse:");

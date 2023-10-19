@@ -20,7 +20,7 @@ unsigned long previousMillis = 0;
 const long interval = 500;
 
 byte displaySelect = 1;
-byte numberOfScreen = 4;
+byte numberOfScreen = 4 ;
 byte unite = 0;
 byte decimal = 0;
 
@@ -34,10 +34,13 @@ struct can_frame canMsg1;
 float pulseWidth = 0;
 float conso = 0;
 float consoAverage = 0;
+float consoAverageAffiche = 0;
 
 int speedVss = 0;
 int rpm = 0;
 int injectorSize = 410;
+int numberOfAverage = 1000;
+int counter = 0;
 
 String chaine;
 
