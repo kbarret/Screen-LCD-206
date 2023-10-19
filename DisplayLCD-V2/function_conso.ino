@@ -1,13 +1,13 @@
 void calculConso(){
   // Call the EMUcan lib with every received frame:
-  if (mcp2515.readMessage(&canMsg) == MCP2515::ERROR_OK) {
-    emucan.checkEMUcan(canMsg.can_id, canMsg.can_dlc, canMsg.data);
-  }
-
-  unsigned long currentMillis = millis();
-  if (currentMillis - previousMillis >= interval) {
-    previousMillis = currentMillis;
-    if (emucan.EMUcan_Status() == EMUcan_RECEIVED_WITHIN_LAST_SECOND) {
+//  if (mcp2515.readMessage(&canMsg) == MCP2515::ERROR_OK) {
+//    emucan.checkEMUcan(canMsg.can_id, canMsg.can_dlc, canMsg.data);
+//  }
+//
+//  unsigned long currentMillis = millis();
+//  if (currentMillis - previousMillis >= interval) {
+//    previousMillis = currentMillis;
+//    if (emucan.EMUcan_Status() == EMUcan_RECEIVED_WITHIN_LAST_SECOND) {
       if(emucan.emu_data.vssSpeed > 4){
         speedVss = emucan.emu_data.vssSpeed;
         rpm = emucan.emu_data.RPM;
@@ -21,6 +21,6 @@ void calculConso(){
 
         consoAverage = (consoAverage + conso)/2;
       }
-    } 
-  }
+//    } 
+//  }
 }
