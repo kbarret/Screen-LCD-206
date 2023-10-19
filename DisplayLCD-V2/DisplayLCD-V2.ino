@@ -21,13 +21,21 @@ const long interval = 500;
 
 byte displaySelect = 1;
 byte numberOfScreen = 4;
-//byte eepromTable[] = {0, 0};//litre, decimal apres la virgule
+
 const byte switchDisplay = 3;
 const byte switchInitTime = 4;
 
 boolean table[] = {false, false, false, false, false, false}; //buttonDisplay, clearDisplayTime, clearDisplayPerf1, clearDisplayPerf2, clearDisplayPerf3, buttonInitTime
 
 struct can_frame canMsg1;
+
+float pulseWidth = 0;
+float conso = 0;
+float consoAverage = 0;
+
+int speedVss = 0;
+int rpm = 0;
+int injectorSize = 410;
 
 void setup() {
   
@@ -50,15 +58,13 @@ void setup() {
   
   //moduleRTC
   //myRTC.setDS1302Time(second(), minute(), hour(), weekday(), day(), month() , year()); //Configuration du temps réel 
- //myRTC.setDS1302Time(0, 31, 17, 5, 13, 10 , 2023); //Configuration du temps réel 
-
-  //EEPROM
-//  eepromTable[0] = EEPROM.read(0);
-//  eepromTable[1] = EEPROM.read(1);
+  //myRTC.setDS1302Time(0, 31, 17, 5, 13, 10 , 2023); //Configuration du temps réel 
 }
 
 void loop() {
   myRTC.updateTime();
+
+  calculConso();
   
   actionButton();
   

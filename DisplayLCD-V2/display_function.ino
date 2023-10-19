@@ -146,8 +146,16 @@ void displayPerf3(){ //Screen 4
       lcd.print(emucan.emu_data.IgnAngle);
 
       cursor(0,2);
-      lcd.print("Volt:");
-      lcd.print(emucan.emu_data.Batt);
+      lcd.print("Conso:");
+      lcd.print(conso);
+      lcd.print("L/100");
+
+      cursor(0,3);
+      lcd.print("Pulse:");
+      if(emucan.emu_data.pulseWidth < 10){
+        lcd.print("0");
+      }
+      lcd.print(emucan.emu_data.pulseWidth);
           
       cursor(14,0);
       lcd.print("MODE:");      
