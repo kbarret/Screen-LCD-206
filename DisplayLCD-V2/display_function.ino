@@ -92,10 +92,13 @@ void displayPerf2(){ //Screen 3
         lcd.print("0");
       }
       lcd.print(emucan.emu_data.CLT);
-      
+
       cursor(0,3);
-      lcd.print("CONSO:");
-      lcd.print(consoAverage);
+      lcd.print("Pulse:");
+      if(emucan.emu_data.pulseWidth < 10){
+        lcd.print("0");
+      }
+      lcd.print(emucan.emu_data.pulseWidth);
       
       cursor(14,0);
       lcd.print("MODE:");      
@@ -146,15 +149,12 @@ void displayPerf3(){ //Screen 4
       lcd.print(emucan.emu_data.IgnAngle);
 
       cursor(0,2);
-      lcd.print("Conso:");
-      lcd.print(conso);
+      lcd.print("Instant:");
+      lcd.print(conso,1);
 
       cursor(0,3);
-      lcd.print("Pulse:");
-      if(emucan.emu_data.pulseWidth < 10){
-        lcd.print("0");
-      }
-      lcd.print(emucan.emu_data.pulseWidth);
+      lcd.print("Average:");
+      lcd.print(consoAverageAffiche);
           
       cursor(14,0);
       lcd.print("MODE:");      

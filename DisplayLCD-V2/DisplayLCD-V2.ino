@@ -21,8 +21,6 @@ const long interval = 500;
 
 byte displaySelect = 1;
 byte numberOfScreen = 4 ;
-byte unite = 0;
-byte decimal = 0;
 
 const byte switchDisplay = 3;
 const byte switchInitTime = 4;
@@ -41,8 +39,6 @@ int rpm = 0;
 int injectorSize = 410;
 int numberOfAverage = 1000;
 int counter = 0;
-
-String chaine;
 
 void setup() {
   
@@ -68,7 +64,7 @@ void setup() {
   //myRTC.setDS1302Time(0, 31, 17, 5, 13, 10 , 2023); //Configuration du temps réel 
 
   //EEPROM
-  //eepromRead();
+  eepromRead();
 }
 
 void loop() {

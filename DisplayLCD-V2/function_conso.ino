@@ -19,9 +19,10 @@ void calculConso(){
       consoAverage = consoAverage + conso;
     } 
     else{
-      consoAverageAffiche = consoAverage/1002;
+      consoAverageAffiche = (consoAverageAffiche + consoAverage)/1003;
       consoAverage = consoAverage/1002;
       counter = 0;
+      eepromUpdate();
     }
   }
 }
