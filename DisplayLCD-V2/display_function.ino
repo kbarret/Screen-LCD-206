@@ -12,7 +12,7 @@ void displayPerf1(){ //Screen 2
   }
 
   // Serial out every second:
-  unsigned long currentMillis = millis();
+  currentMillis = millis();
   if (currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis;
     if (emucan.EMUcan_Status() == EMUcan_RECEIVED_WITHIN_LAST_SECOND) {
@@ -55,7 +55,7 @@ void displayPerf2(){ //Screen 3
     emucan.checkEMUcan(canMsg.can_id, canMsg.can_dlc, canMsg.data);
   }
 
-  unsigned long currentMillis = millis();
+  currentMillis = millis();
   if (currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis;
     if (emucan.EMUcan_Status() == EMUcan_RECEIVED_WITHIN_LAST_SECOND) {
@@ -127,7 +127,7 @@ void displayPerf3(){ //Screen 4
     emucan.checkEMUcan(canMsg.can_id, canMsg.can_dlc, canMsg.data);
   }
 
-  unsigned long currentMillis = millis();
+  currentMillis = millis();
   if (currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis;
     if (emucan.EMUcan_Status() == EMUcan_RECEIVED_WITHIN_LAST_SECOND) {
@@ -150,11 +150,16 @@ void displayPerf3(){ //Screen 4
 
       cursor(0,2);
       lcd.print("Instant:");
-      lcd.print(conso,1);
-
+      if(emucan.emu_data.vssSpeed > 20){
+        lcd.print(conso,1);
+      }
+      else{
+        lcd.print("----");
+      }
+      
       cursor(0,3);
       lcd.print("Average:");
-      lcd.print(consoAverageAffiche);
+      lcd.print(consoAverage,1);
           
       cursor(14,0);
       lcd.print("MODE:");      

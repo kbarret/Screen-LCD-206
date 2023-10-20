@@ -17,6 +17,11 @@ MCP2515 mcp2515(10);
 virtuabotixRTC myRTC(6, 7, 8);
 
 unsigned long previousMillis = 0;
+unsigned long average = 0;
+unsigned long sampling = 0;
+unsigned long currentMillis = 0;
+unsigned long currentMillisConso = 0;
+
 const long interval = 500;
 
 byte displaySelect = 1;
@@ -31,14 +36,12 @@ struct can_frame canMsg1;
 
 float pulseWidth = 0;
 float conso = 0;
-float consoAverage = 0;
-float consoAverageAffiche = 0;
+
+double consoAverage = 0;
 
 int speedVss = 0;
 int rpm = 0;
 int injectorSize = 410;
-int numberOfAverage = 1000;
-int counter = 0;
 
 void setup() {
   
