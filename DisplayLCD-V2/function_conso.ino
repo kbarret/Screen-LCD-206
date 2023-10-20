@@ -16,26 +16,7 @@ void calculConso(){
     average = average + conso;
     sampling++;
     eepromUpdate();
-    consoAverage = average/sampling;
-      
-//    currentMillisConso = millis();
-//    if (currentMillis - previousMillis >= interval) {
-//      previousMillis = currentMillis;
-//      
-//    }
+    consoAverage = average/(sampling/100);
+    consoAverage = consoAverage*0.01;
   }
-//  rpm = emucan.emu_data.RPM;
-//  pulseWidth = emucan.emu_data.pulseWidth;
-//  conso = rpm*pulseWidth;
-//  conso = conso*120;
-//  conso = conso/1000;
-//  conso = conso/60;
-//  conso = conso*injectorSize;
-//  conso = conso/1000;
-//  average = average + conso;
-//  //Serial.println(average);
-//  sampling++;
-//  eepromUpdate();
-//  consoAverage = average/sampling;
-//  
 }

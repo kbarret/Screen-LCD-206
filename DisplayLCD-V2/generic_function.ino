@@ -58,10 +58,11 @@ void displayToLCD(){
 }
 
 void clearLCD(int screen){
+  Serial.println(table[4]);
   if(table[screen] == false){
     lcd.clear();
     table[screen] = true;
-    for(int i = 1; i != numberOfScreen; i++){
+    for(int i = 1; i != numberOfScreen+1; i++){
       if(i != screen){
         table[i] = false;
         

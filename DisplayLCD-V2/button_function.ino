@@ -14,7 +14,10 @@ void actionButton(){
     table[5] = true;
   }
   if(digitalRead(switchInitTime) == HIGH && table[5] == true){
-    EEPROM.put(0, 0);
+    average = 0;
+    sampling = 0;
+    consoAverage = 0;
+    eepromUpdate();
     table[5] = false;
   }
 }
