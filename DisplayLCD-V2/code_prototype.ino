@@ -37,3 +37,42 @@
 //    canMsg1.data[0] = 0x00;
 //    mcp2515.sendMessage(&canMsg1);
 //  }
+
+
+//int valeurA0 = 0;
+//int valeurA1 = 0;
+//
+//void setup() {
+//  Serial.begin(9600);
+//  pinMode(A0, INPUT_PULLUP);
+//  pinMode(A1, INPUT_PULLUP);
+//}
+//
+//void loop() {
+//  valeurA0 = analogRead(A0);
+//  valeurA1 = analogRead(A1);
+//  
+//     switch (valeurA1) {
+//  case 30 ... 35:
+//    Serial.println("1");
+//    break;
+//  case 10 ... 14:
+//    Serial.println("2");
+//    break;
+//  case 15 ... 19:
+//    Serial.println("3");
+//    break;
+//  }
+//  
+//  switch (valeurA0) {
+//  case 30 ... 35:
+//    Serial.println("4");
+//    break;
+//  case 10 ... 14:
+//    Serial.println("5");
+//    break;
+//  case 15 ... 19:
+//    Serial.println("6");
+//    break;
+//  }
+//}
