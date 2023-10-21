@@ -76,3 +76,42 @@
 //    break;
 //  }
 //}
+
+//    valeurA1min = valeurA1;
+//    valeurA1max = valeurA1;
+//    for(int i = 0; i != 100; i++){
+//      valeurA1 = analogRead(A1);
+//      valeurTampon = valeurTampon + valeurA1;
+//      if(valeurA1min > valeurA1){
+//        valeurA1min = valeurA1;
+//      }
+//      if(valeurA1max < valeurA1){
+//        valeurA1max = valeurA1;
+//      }
+
+//Serial.println(analogRead(A1));
+//Serial.println(analogRead(A0));
+//     switch (valeurA1) {
+//  case 33 ... 40:
+//    Serial.println("1");
+//    break;
+//  case 13 ... 17:
+//    Serial.println("2");
+//    break;
+//  case 20 ... 23:
+//    Serial.println("3");
+//    break;
+//  }
+  
+//  switch (valeurA0) {
+//  case 32 ... 44:
+//    Serial.println("4");
+//    break;
+//  case 9 ... 22:
+//    Serial.println("5");
+//    break;
+//  case 16 ... 28:
+//    Serial.println("6");
+//    break;
+//  }
+//}

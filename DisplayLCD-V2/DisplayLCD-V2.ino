@@ -30,18 +30,28 @@ byte numberOfScreen = 4 ;
 const byte switchDisplay = 3;
 const byte switchInitTime = 4;
 
-boolean table[] = {false, false, false, false, false, false}; //buttonDisplay, clearDisplayTime, clearDisplayPerf1, clearDisplayPerf2, clearDisplayPerf3, buttonInitTime
+boolean table[] = {false, false, false, false, false, false, false, false, false, false, false, false}; //buttonDisplay, clearDisplayTime, clearDisplayPerf1, clearDisplayPerf2, clearDisplayPerf3, buttonInitTime, com1, com2, com3, com4, com5, com6
 
 struct can_frame canMsg1;
+struct can_frame canMsg2;
 
 float pulseWidth = 0;
 float conso = 0;
+
 
 double consoAverage = 0;
 
 int speedVss = 0;
 int rpm = 0;
 int injectorSize = 350;
+int valeurA0 = 0;
+int valeurA1 = 0;
+int valeurA0min = 0;
+int valeurA1min = 0;
+int valeurA0max = 0;
+int valeurA1max = 0;
+int valeurTampon = 0;
+
 
 void setup() {
   
@@ -59,6 +69,9 @@ void setup() {
   //bouton
   pinMode(switchDisplay, INPUT);
   pinMode(switchInitTime, INPUT);
+  
+  pinMode(A0, INPUT_PULLUP);
+  pinMode(A1, INPUT_PULLUP);
   digitalWrite(switchDisplay, HIGH);
   digitalWrite(switchInitTime, HIGH);
   

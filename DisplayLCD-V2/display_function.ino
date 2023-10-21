@@ -129,18 +129,20 @@ void displayPerf3(){ //Screen 4
   if (currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis;
     if (emucan.EMUcan_Status() == EMUcan_RECEIVED_WITHIN_LAST_SECOND) {
+      
       cursor(0,0);
       lcd.print("RPM:");
+      lcd.print(emucan.emu_data.RPM);     
       if(emucan.emu_data.RPM < 1000){
-        lcd.print("0");
+        lcd.print(" ");
       }
       if(emucan.emu_data.RPM < 100){
-        lcd.print("0");
+        lcd.print(" ");
       }
       if(emucan.emu_data.RPM < 10){
-        lcd.print("0");
+        lcd.print(" ");
       }
-      lcd.print(emucan.emu_data.RPM);
+      
       
       cursor(0,1);
       lcd.print("Ign:");
@@ -155,7 +157,7 @@ void displayPerf3(){ //Screen 4
         }
       }
       else{
-        lcd.print("...");
+        lcd.print("... ");
       }
       
       cursor(0,3);

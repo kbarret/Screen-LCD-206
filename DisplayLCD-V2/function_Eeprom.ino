@@ -20,11 +20,5 @@ void eepromRead(){
     if(average == 0 && sampling == 0){
       consoAverage = 0;
     }
-    Serial.println(sampling);
-    Serial.println(average);
-    Serial.println(consoAverage);
-    //Serial.println(sampling);
-    //Serial.print(EEPROM.read(20));
-    
   } 
 }

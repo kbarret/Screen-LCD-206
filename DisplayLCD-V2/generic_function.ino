@@ -58,7 +58,7 @@ void displayToLCD(){
 }
 
 void clearLCD(int screen){
-  Serial.println(table[4]);
+  //Serial.println(table[4]);
   if(table[screen] == false){
     lcd.clear();
     table[screen] = true;
