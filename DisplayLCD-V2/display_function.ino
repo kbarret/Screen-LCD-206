@@ -130,19 +130,21 @@ void displayPerf3(){ //Screen 4
     previousMillis = currentMillis;
     if (emucan.EMUcan_Status() == EMUcan_RECEIVED_WITHIN_LAST_SECOND) {
       
-      cursor(0,0);
-      lcd.print("RPM:");
-      lcd.print(emucan.emu_data.RPM);     
-      if(emucan.emu_data.RPM < 1000){
-        lcd.print(" ");
-      }
-      if(emucan.emu_data.RPM < 100){
-        lcd.print(" ");
-      }
-      if(emucan.emu_data.RPM < 10){
-        lcd.print(" ");
-      }
-      
+      cursor(0,0);     
+      lcd.print("EGT:");
+      lcd.print(emucan.emu_data.Egt1); 
+//      lcd.print("RPM:");
+//      lcd.print(emucan.emu_data.RPM);     
+//      if(emucan.emu_data.RPM < 1000){
+//        lcd.print(" ");
+//      }
+//      if(emucan.emu_data.RPM < 100){
+//        lcd.print(" ");
+//      }
+//      if(emucan.emu_data.RPM < 10){
+//        lcd.print(" ");
+//      }
+//      
       
       cursor(0,1);
       lcd.print("Ign:");
