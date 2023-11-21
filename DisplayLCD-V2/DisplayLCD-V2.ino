@@ -29,8 +29,10 @@ byte numberOfScreen = 4 ;
 
 const byte switchDisplay = 3;
 const byte switchInitTime = 4;
+const byte switchBrake = 5;
+const byte switchClutch = 9;
 
-boolean table[] = {false, false, false, false, false, false, false, false, false, false, false, false}; //buttonDisplay, clearDisplayTime, clearDisplayPerf1, clearDisplayPerf2, clearDisplayPerf3, buttonInitTime, com1, com2, com3, com4, com5, com6
+boolean table[] = {false, false, false, false, false, false, false, false, false, false, false, false, false, false}; //buttonDisplay, clearDisplayTime, clearDisplayPerf1, clearDisplayPerf2, clearDisplayPerf3, buttonInitTime, com1, com2, com3, com4, com5, com6, clutch, brake
 
 struct can_frame canMsg1;
 struct can_frame canMsg2;
@@ -69,11 +71,15 @@ void setup() {
   //bouton
   pinMode(switchDisplay, INPUT);
   pinMode(switchInitTime, INPUT);
+  pinMode(switchClutch, INPUT);
+  pinMode(switchBrake, INPUT);
   
   pinMode(A0, INPUT_PULLUP);
   pinMode(A1, INPUT_PULLUP);
   digitalWrite(switchDisplay, HIGH);
   digitalWrite(switchInitTime, HIGH);
+  digitalWrite(switchClutch, HIGH);
+  digitalWrite(switchBrake, HIGH);
   
   //moduleRTC
   //myRTC.setDS1302Time(second(), minute(), hour(), weekday(), day(), month() , year()); //Configuration du temps réel 

@@ -9,6 +9,39 @@ void actionButton(){
   if(analogRead(A1) > 1000 && table[0] == true){
     table[0] = false;
   }
+
+ 
+  if(digitalRead(switchClutch) == HIGH && table[12] == false){
+    Serial.println("clutch");
+    canMsg2.can_id = 0x500;
+    canMsg2.can_dlc = 2;
+    canMsg2.data[0] = 0xFF;
+    mcp2515.sendMessage(&canMsg2);
+    table[12] = true;
+  }
+  if(digitalRead(switchClutch) == LOW && table[12] == true){
+    canMsg2.can_id = 0x500;
+    canMsg2.can_dlc = 2;
+    canMsg2.data[0] = 0x00;
+    mcp2515.sendMessage(&canMsg2);
+    table[12] = false;
+  }
+
+  if(digitalRead(switchBrake) == HIGH && table[13] == false){
+    Serial.println("brake");
+    canMsg2.can_id = 0x500;
+    canMsg2.can_dlc = 2;
+    canMsg2.data[1] = 0xFF;
+    mcp2515.sendMessage(&canMsg2);
+    table[13] = true;
+  }
+  if(digitalRead(switchBrake) == LOW && table[13] == true){
+    table[13] = false;
+    canMsg2.can_id = 0x500;
+    canMsg2.can_dlc = 2;
+    canMsg2.data[1] = 0x00;
+    mcp2515.sendMessage(&canMsg2);
+  }
 //  if(digitalRead(switchDisplay) == LOW && table[0] == false){
 //    displaySelect++;
 //    if(displaySelect > numberOfScreen){
