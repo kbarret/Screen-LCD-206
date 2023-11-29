@@ -83,7 +83,7 @@ void setup() {
   
   //moduleRTC
   //myRTC.setDS1302Time(second(), minute(), hour(), weekday(), day(), month() , year()); //Configuration du temps réel 
-  //myRTC.setDS1302Time(0, 31, 17, 5, 13, 10 , 2023); //Configuration du temps réel 
+  //myRTC.setDS1302Time(0, 29, 9, 3, 29, 11 , 2023); //Configuration du temps réel 
 
   //EEPROM
   eepromRead();
