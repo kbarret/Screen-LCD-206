@@ -1,16 +1,16 @@
-void displayTime(){ //Screen 1 
+  void displayTime(){ //Screen 1 
   clearLCD(1);
   displayHour();
   displayDate();
-}
-
-void displayPerf1(){ //Screen 2
+  }
+  
+  void displayPerf1(){ //Screen 2
   clearLCD(2);
   // Call the EMUcan lib with every received frame:
   if (mcp2515.readMessage(&canMsg) == MCP2515::ERROR_OK) {
     emucan.checkEMUcan(canMsg.can_id, canMsg.can_dlc, canMsg.data);
   }
-
+  
   // Serial out every second:
   currentMillis = millis();
   if (currentMillis - previousMillis >= interval) {
@@ -47,15 +47,15 @@ void displayPerf1(){ //Screen 2
       lcd.print("No communication");
     }
   }
-}
-
-void displayPerf2(){ //Screen 3
+  }
+  
+  void displayPerf2(){ //Screen 3
   clearLCD(3);
   // Call the EMUcan lib with every received frame:
   if (mcp2515.readMessage(&canMsg) == MCP2515::ERROR_OK) {
     emucan.checkEMUcan(canMsg.can_id, canMsg.can_dlc, canMsg.data);
   }
-
+  
   currentMillis = millis();
   if (currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis;
@@ -116,15 +116,15 @@ void displayPerf2(){ //Screen 3
       lcd.print("No communication");
     }
   }
-}
-
-void displayPerf3(){ //Screen 4
+  }
+  
+  void displayPerf3(){ //Screen 4
   clearLCD(4);
   // Call the EMUcan lib with every received frame:
   if (mcp2515.readMessage(&canMsg) == MCP2515::ERROR_OK) {
     emucan.checkEMUcan(canMsg.can_id, canMsg.can_dlc, canMsg.data);
   }
-
+  
   currentMillis = millis();
   if (currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis;
@@ -133,23 +133,23 @@ void displayPerf3(){ //Screen 4
       cursor(0,0);     
       lcd.print("EGT:");
       lcd.print(emucan.emu_data.Egt1); 
-//      lcd.print("RPM:");
-//      lcd.print(emucan.emu_data.RPM);     
-//      if(emucan.emu_data.RPM < 1000){
-//        lcd.print(" ");
-//      }
-//      if(emucan.emu_data.RPM < 100){
-//        lcd.print(" ");
-//      }
-//      if(emucan.emu_data.RPM < 10){
-//        lcd.print(" ");
-//      }
-//      
+  //      lcd.print("RPM:");
+  //      lcd.print(emucan.emu_data.RPM);     
+  //      if(emucan.emu_data.RPM < 1000){
+  //        lcd.print(" ");
+  //      }
+  //      if(emucan.emu_data.RPM < 100){
+  //        lcd.print(" ");
+  //      }
+  //      if(emucan.emu_data.RPM < 10){
+  //        lcd.print(" ");
+  //      }
+  //      
       
       cursor(0,1);
       lcd.print("Ign:");
       lcd.print(emucan.emu_data.IgnAngle);
-
+  
       cursor(0,2);
       lcd.print("Instant:");
       if(emucan.emu_data.vssSpeed > 20){
@@ -183,4 +183,4 @@ void displayPerf3(){ //Screen 4
       lcd.print("No communication");
     }
   }
-}
+  }
