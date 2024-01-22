@@ -94,6 +94,7 @@ void setup() {
 void loop() {
 
   serialRead();
+  
   myRTC.updateTime();
 
   calculConso();
