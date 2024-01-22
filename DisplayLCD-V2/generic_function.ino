@@ -93,3 +93,9 @@ void clearLCD(int screen){
     }   
   }
 }
+
+void serialRead(){
+  if(Serial.available()){
+    val = Serial.read();
+  }
+}
