@@ -1,6 +1,6 @@
 void actionButton(){
-  Serial.println(analogRead(A1));
-  if(13 < analogRead(A1) && analogRead(A1) < 17 && table[0] == false){
+  //Serial.println(analogRead(A1));
+  if(13 < analogRead(A1) && analogRead(A1) < 17 || val == '7' && table[0] == false){
     displaySelect++;
     if(displaySelect > numberOfScreen){
       displaySelect = 1;
@@ -13,7 +13,7 @@ void actionButton(){
 
  
   if(digitalRead(switchClutch) == HIGH && table[12] == false){
-    Serial.println("clutch");
+    //Serial.println("clutch");
     canMsg2.can_id = 0x500;
     canMsg2.can_dlc = 2;
     canMsg2.data[0] = 0xFF;
@@ -29,7 +29,7 @@ void actionButton(){
   }
 
   if(digitalRead(switchBrake) == HIGH && table[13] == false){
-    Serial.println("brake");
+    //Serial.println("brake");
     canMsg2.can_id = 0x500;
     canMsg2.can_dlc = 2;
     canMsg2.data[1] = 0xFF;
@@ -81,7 +81,7 @@ void actionButton(){
       canMsg1.data[4] = 0x00;
       canMsg1.data[5] = 0x00;
       mcp2515.sendMessage(&canMsg1);
-      Serial.println("1");
+      //Serial.println("1");
       break;
       
     case 13 ... 15:
@@ -94,7 +94,7 @@ void actionButton(){
       canMsg1.data[4] = 0x00;
       canMsg1.data[5] = 0x00;
       mcp2515.sendMessage(&canMsg1);
-      Serial.println("2");
+      //Serial.println("2");
       break;
       
     case 23 ... 25:
@@ -107,7 +107,7 @@ void actionButton(){
       canMsg1.data[4] = 0x00;
       canMsg1.data[5] = 0x00;
       mcp2515.sendMessage(&canMsg1);
-      Serial.println("3");
+      //Serial.println("3");
       break;
     }
     switch (valeurA1) {

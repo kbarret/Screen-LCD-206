@@ -33,6 +33,7 @@ const byte switchBrake = 5;
 const byte switchClutch = 9;
 
 boolean table[] = {false, false, false, false, false, false, false, false, false, false, false, false, false, false}; //buttonDisplay, clearDisplayTime, clearDisplayPerf1, clearDisplayPerf2, clearDisplayPerf3, buttonInitTime, com1, com2, com3, com4, com5, com6, clutch, brake
+boolean testDisplay = true;
 
 struct can_frame canMsg1;
 struct can_frame canMsg2;
@@ -45,7 +46,7 @@ double consoAverage = 0;
 
 int speedVss = 0;
 int rpm = 0;
-int injectorSize = 410;
+int injectorSize = 320;
 int valeurA0 = 0;
 int valeurA1 = 0;
 int valeurA0min = 0;
@@ -54,10 +55,11 @@ int valeurA0max = 0;
 int valeurA1max = 0;
 int valeurTampon = 0;
 
+char val;
 
 void setup() {
   
-  Serial.begin(115200);
+  Serial.begin(9600);
   
   //EMUcan
   mcp2515.reset();
@@ -90,6 +92,8 @@ void setup() {
 }
 
 void loop() {
+
+  serialRead();
   myRTC.updateTime();
 
   calculConso();
