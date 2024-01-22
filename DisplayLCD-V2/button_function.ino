@@ -13,7 +13,6 @@ void actionButton(){
 
  
   if(digitalRead(switchClutch) == HIGH && table[12] == false){
-    //Serial.println("clutch");
     canMsg2.can_id = 0x500;
     canMsg2.can_dlc = 2;
     canMsg2.data[0] = 0xFF;
@@ -29,7 +28,6 @@ void actionButton(){
   }
 
   if(digitalRead(switchBrake) == HIGH && table[13] == false){
-    //Serial.println("brake");
     canMsg2.can_id = 0x500;
     canMsg2.can_dlc = 2;
     canMsg2.data[1] = 0xFF;
@@ -43,16 +41,6 @@ void actionButton(){
     canMsg2.data[1] = 0x00;
     mcp2515.sendMessage(&canMsg2);
   }
-//  if(digitalRead(switchDisplay) == LOW && table[0] == false){
-//    displaySelect++;
-//    if(displaySelect > numberOfScreen){
-//      displaySelect = 1;
-//    }
-//    table[0] = true;
-//  }
-//  if(digitalRead(switchDisplay) == HIGH && table[0] == true){
-//    table[0] = false;
-//  }
   
   if(digitalRead(switchInitTime) == LOW && table[5] == false){
     table[5] = true;

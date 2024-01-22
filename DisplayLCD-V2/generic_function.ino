@@ -69,6 +69,7 @@ void displayToLCD(){
     else {
       lcd.clear();
       lcd.noBacklight();
+////////////////// a reflechir 
 //      cursor(0,0);
 //      for(int i = 0;i < 4;i++){
 //        lcd.print("No communication");
