@@ -59,7 +59,7 @@ void actionButton(){
   if(valeurA0 < 1000 || valeurA1< 1000){
     switch (valeurA0) {
       
-    case 33 ... 34:
+    case 33 ... 34://carto 1 2
       canMsg1.can_id = 0x0F6;
       canMsg1.can_dlc = 6;
       canMsg1.data[0] = 0xFF;
@@ -72,7 +72,7 @@ void actionButton(){
       //Serial.println("1");
       break;
       
-    case 13 ... 15:
+    case 13 ... 15:.//changemment ecran
       canMsg1.can_id = 0x0F6;
       canMsg1.can_dlc = 6;
       canMsg1.data[0] = 0x00;
@@ -85,7 +85,7 @@ void actionButton(){
       //Serial.println("2");
       break;
       
-    case 23 ... 25:
+    case 23 ... 25://rolling
       canMsg1.can_id = 0x0F6;
       canMsg1.can_dlc = 6;
       canMsg1.data[0] = 0x00;
