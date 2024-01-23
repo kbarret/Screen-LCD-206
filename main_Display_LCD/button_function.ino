@@ -72,7 +72,7 @@ void actionButton(){
       //Serial.println("1");
       break;
       
-    case 13 ... 15:.
+    case 13 ... 15:
       canMsg1.can_id = 0x0F6;
       canMsg1.can_dlc = 6;
       canMsg1.data[0] = 0x00;
