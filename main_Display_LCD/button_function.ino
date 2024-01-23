@@ -42,7 +42,7 @@ void actionButton(){
     mcp2515.sendMessage(&canMsg2);
   }
   
-  if(digitalRead(switchInitTime) == LOW && table[5] == false){
+  if(digitalRead(switchInitTime) == LOW && table[5] == false){  
     table[5] = true;
   }
   if(digitalRead(switchInitTime) == HIGH && table[5] == true){
@@ -52,10 +52,28 @@ void actionButton(){
     eepromUpdate();
     table[5] = false;
   }
+
+  if(digitalRead(switchMenuDisplay) == LOW && table[14] == false){ 
+    table[14] = true;
+  }
+  if(digitalRead(switchMenuDisplay) == HIGH && table[14] == true){
+    if(menuDisplay == false){
+      lcd.clear();
+      menuDisplay = true;
+    }
+    else{
+      menuDisplay = false;
+      lcd.clear();
+    }
+    table[14] = false;
+  }
+    
+
+  
   valeurA0 = analogRead(A0);
   valeurA1 = analogRead(A1);
  
-
+if(menuDisplay == false){
   if(valeurA0 < 1000 || valeurA1< 1000){
     switch (valeurA0) {
       
@@ -111,19 +129,7 @@ void actionButton(){
         canMsg1.data[5] = 0x00;
         mcp2515.sendMessage(&canMsg1);
         break;
-        
-      case 13 ... 15:
-//        canMsg1.can_id = 0x0F6;
-//        canMsg1.can_dlc = 6;
-//        canMsg1.data[0] = 0x00;
-//        canMsg1.data[1] = 0x00;
-//        canMsg1.data[2] = 0x00;
-//        canMsg1.data[3] = 0x00;
-//        canMsg1.data[4] = 0xFF;
-//        canMsg1.data[5] = 0x00;
-//        mcp2515.sendMessage(&canMsg1);
-        break;
-        
+                
       case 23 ... 25:
         canMsg1.can_id = 0x0F6;
         canMsg1.can_dlc = 6;
@@ -148,44 +154,11 @@ void actionButton(){
     canMsg1.data[5] = 0x00;
     mcp2515.sendMessage(&canMsg1);
    }
+  }
+  else{
+    
+  }
+
+
+} 
    
-//  if(valeurA1< 1000){
-//    switch (valeurA1) {
-//      
-//    case 33 ... 34:
-//      canMsg2.can_id = 0x0F6;
-//      canMsg2.can_dlc = 4;
-//      canMsg2.data[3] = 0xFF;
-//      canMsg2.data[4] = 0x00;
-//      canMsg2.data[5] = 0x00;
-//      mcp2515.sendMessage(&canMsg2);
-//      break;
-//      
-//    case 13 ... 15:
-//      canMsg2.can_id = 0x0F6;
-//      canMsg2.can_dlc = 4;
-//      canMsg2.data[4] = 0xFF;
-//      canMsg2.data[3] = 0x00;
-//      canMsg2.data[5] = 0x00;
-//      mcp2515.sendMessage(&canMsg2);
-//      break;
-//      
-//    case 23 ... 25:
-//      canMsg2.can_id = 0x0F6;
-//      canMsg2.can_dlc = 4;
-//      canMsg2.data[5] = 0xFF;
-//      canMsg2.data[4] = 0x00;
-//      canMsg2.data[3] = 0x00;
-//      mcp2515.sendMessage(&canMsg2);
-//      break;
-//    }
-//   }
-//   else{
-//    canMsg2.can_id = 0x0F6;
-//    canMsg2.can_dlc = 4;
-//    canMsg2.data[3] = 0x00;
-//    canMsg2.data[4] = 0x00;
-//    canMsg2.data[5] = 0x00;
-//    mcp2515.sendMessage(&canMsg2);
-//   }
-}

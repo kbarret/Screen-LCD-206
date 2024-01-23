@@ -41,43 +41,40 @@ void displayDate(){
 }
 
 void displayToLCD(){
-  
-  // Call the EMUcan lib with every received frame:
-  if (mcp2515.readMessage(&canMsg) == MCP2515::ERROR_OK) {
-    emucan.checkEMUcan(canMsg.can_id, canMsg.can_dlc, canMsg.data);
-   }
-  // Serial out every second:
-  currentMillis = millis();
-  if (currentMillis - previousMillis >= interval) {
-    previousMillis = currentMillis;
-    if (emucan.EMUcan_Status() == EMUcan_RECEIVED_WITHIN_LAST_SECOND || testDisplay == true) {
-      switch(displaySelect){
-          case 1:
-            displayTime();
-             break;
-          case 2:
-            displayPerf1();
-            break;
-          case 3:
-            displayPerf2();
-            break;
-          case 4:
-            displayPerf3();
-            break;
-      }       
-    }  
-    else {
-      lcd.clear();
-      lcd.noBacklight();
-////////////////// a reflechir 
-//      cursor(0,0);
-//      for(int i = 0;i < 4;i++){
-//        lcd.print("No communication");
-//        delay(800);
-//        lcd.clear();
-//      } 
-    } 
-  } 
+  if(menuDisplay == false){
+    // Call the EMUcan lib with every received frame:
+    if (mcp2515.readMessage(&canMsg) == MCP2515::ERROR_OK) {
+      emucan.checkEMUcan(canMsg.can_id, canMsg.can_dlc, canMsg.data);
+     }
+    // Serial out every second:
+    currentMillis = millis();
+    if (currentMillis - previousMillis >= interval) {
+      previousMillis = currentMillis;
+      if (emucan.EMUcan_Status() == EMUcan_RECEIVED_WITHIN_LAST_SECOND || testDisplay == true) {
+        switch(displaySelect){
+            case 1:
+              displayTime();
+               break;
+            case 2:
+              displayPerf1();
+              break;
+            case 3:
+              displayPerf2();
+              break;
+            case 4:
+              displayPerf3();
+              break;
+        }       
+      }  
+      else {
+        lcd.clear();
+        lcd.noBacklight();
+      } 
+    }
+  }
+  else{
+    displayMenu(); 
+  }
 }
 
 void clearLCD(int screen){

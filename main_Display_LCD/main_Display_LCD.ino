@@ -27,13 +27,14 @@ const long interval = 500;
 byte displaySelect = 1;
 byte numberOfScreen = 4 ;
 
-const byte switchDisplay = 3;
+const byte switchMenuDisplay = 3;
 const byte switchInitTime = 4;
 const byte switchBrake = 5;
 const byte switchClutch = 9;
 
-boolean table[] = {false, false, false, false, false, false, false, false, false, false, false, false, false, false}; //buttonDisplay, clearDisplayTime, clearDisplayPerf1, clearDisplayPerf2, clearDisplayPerf3, buttonInitTime, com1, com2, com3, com4, com5, com6, clutch, brake
-boolean testDisplay = true;
+boolean table[] = {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false}; //buttonDisplay, clearDisplayTime, clearDisplayPerf1, clearDisplayPerf2, clearDisplayPerf3, buttonInitTime, com1, com2, com3, com4, com5, com6, clutch, brake, menudisplay
+boolean testDisplay = false;
+boolean menuDisplay = false;
 
 struct can_frame canMsg1;
 struct can_frame canMsg2;
@@ -71,14 +72,14 @@ void setup() {
   lcd.backlight();
 
   //bouton
-  pinMode(switchDisplay, INPUT);
+  pinMode(switchMenuDisplay, INPUT);
   pinMode(switchInitTime, INPUT);
   pinMode(switchClutch, INPUT);
   pinMode(switchBrake, INPUT);
   
   pinMode(A0, INPUT_PULLUP);
   pinMode(A1, INPUT_PULLUP);
-  digitalWrite(switchDisplay, HIGH);
+  digitalWrite(switchMenuDisplay, HIGH);
   digitalWrite(switchInitTime, HIGH);
   digitalWrite(switchClutch, HIGH);
   digitalWrite(switchBrake, HIGH);
@@ -92,7 +93,7 @@ void setup() {
 }
 
 void loop() {
-
+  //Serial.print(digitalRead(switchMenuDisplay));
   serialRead();
   
   myRTC.updateTime();
