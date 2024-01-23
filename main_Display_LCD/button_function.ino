@@ -1,6 +1,6 @@
 void actionButton(){
   //Serial.println(analogRead(A1));
-  if(13 < analogRead(A1) && analogRead(A1) < 17 || val == '7' && table[0] == false){
+  if(13 < analogRead(A1) && analogRead(A1) < 17 && table[0] == false || val == '7' && table[0] == false){
     displaySelect++;
     if(displaySelect > numberOfScreen){
       displaySelect = 1;
